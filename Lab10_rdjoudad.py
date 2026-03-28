@@ -20,6 +20,13 @@ class WordAnalyzer:
                 with self.__filepath.open() as book:
                      for line in book:
                           ignored_characters = str.maketrans("", "", string.punctuation)
-                          
+                          words = line.lower().split()
+                          for word in words:
+                                if word in self.__word_occurences:
+                                    self.__word_occurences[word] += 1 
+                                else:
+                                    self.__word_occurences[word] = 1
+                return True
         except FileNotFoundError:
                 print("That file does not exist.")
+                return False
