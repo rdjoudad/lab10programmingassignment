@@ -12,7 +12,14 @@ class WordAnalyzer:
 
     def __init__(self, filepath):
         # triple docstring goes here
-        self.__filepath = filepath.Path(filepath)
+        self.__filepath = pathlib.Path(filepath)
         self.__word_occurences = {}
-
-    
+    def process_file(self):
+        try:
+            if self.__filepath.exists():
+                with self.__filepath.open() as book:
+                     for line in book:
+                          ignored_characters = str.maketrans("", "", string.punctuation)
+                          
+        except FileNotFoundError:
+                print("That file does not exist.")
