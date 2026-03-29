@@ -17,7 +17,7 @@ class WordAnalyzer:
     def process_file(self):
         try:
             if self.__filepath.exists():
-                with self.__filepath.open() as book:
+                with self.__filepath.open(encoding="utf-8") as book:
                     for line in book:
                         ignored_characters = str.maketrans("", "", string.punctuation)
                         stripped_lines = line.translate(ignored_characters)
