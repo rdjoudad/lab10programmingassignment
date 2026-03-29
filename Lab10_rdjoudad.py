@@ -13,19 +13,20 @@ class WordAnalyzer:
     def __init__(self, filepath):
         # triple docstring goes here
         self.__filepath = pathlib.Path(filepath)
-        self.__word_occurences = {}
+        self.__word_mentions = {}
     def process_file(self):
         try:
             if self.__filepath.exists():
                 with self.__filepath.open() as book:
                     for line in book:
                         ignored_characters = str.maketrans("", "", string.punctuation)
+                        stripped_lines = line.translate(ignored_characters)
                         words = line.lower().split()
                         for word in words:
-                            if word in self.__word_occurences:
-                                self.__word_occurences[word] += 1 
+                            if word in self.__word_mentions:
+                                self.__word_mentions[word] += 1 
                             else:
-                                self.__word_occurences[word] = 1
+                                self.__word_mentions[word] = 1
                 return True
         except FileNotFoundError:
             print("That file does not exist.")
@@ -33,9 +34,9 @@ class WordAnalyzer:
     
     def print_report(self):
          #triple docstring goes here
-        sorted_words = sorted(self.__word_occurences.keys())
+        sorted_words = sorted(self.__word_mentions.keys())
         for word in sorted_words: 
-            print(f"{word} :: {self.__word_frequencies[word]}")
+            print(f"{word} :: {self.__word_mentions[word]}")
 
 def main():
     files = {
