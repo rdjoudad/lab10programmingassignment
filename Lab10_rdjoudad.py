@@ -35,5 +35,4 @@ class WordAnalyzer:
          #triple docstring goes here
          sorted_words = sorted(self.__word_occurences.keys())
          for word in sorted_words: 
-            print("{word} :: {self.__word_frequencies[word]}")
-            
+            print(f"{word} :: {self.__word_frequencies[word]}")
