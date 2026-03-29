@@ -16,12 +16,13 @@ class WordAnalyzer:
         self.__word_mentions = {}
     def process_file(self):
         try:
-            if self.__filepath.exists():
+            if self.__filepath.exists():   
+                extra = "“”‘’—–"
+                ignored_characters = str.maketrans("", "", string.punctuation + extra)
                 with self.__filepath.open(encoding="utf-8") as book:
                     for line in book:
-                        ignored_characters = str.maketrans("", "", string.punctuation)
                         stripped_lines = line.translate(ignored_characters)
-                        words = line.lower().split()
+                        words = stripped_lines.lower().split()
                         for word in words:
                             if word in self.__word_mentions:
                                 self.__word_mentions[word] += 1 
