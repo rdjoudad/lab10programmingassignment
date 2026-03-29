@@ -42,6 +42,13 @@ def main():
         "1" : pathlib.Path("monte_cristo.txt"),
         "2" : pathlib.Path("princess_mars.txt"),
         "3" : pathlib.Path("Tarzan.txt"),
-        "4" : pathlib.Path("monte_cristo.txt")
+        "4" : pathlib.Path("treasure_island.txt")
     }
-     
+    print("--- Word Analyzer ---")
+    print("Please select a file to analyze:")
+    print("1. Monte Cristo")
+    print("2. Princess Mars")
+    print("3. Tarzan")
+    print("4. Treasure Island")
+    while user_response != 'q':
+        user_response = input("")
