@@ -30,3 +30,10 @@ class WordAnalyzer:
         except FileNotFoundError:
                 print("That file does not exist.")
                 return False
+    
+    def print_report(self):
+         #triple docstring goes here
+         sorted_words = sorted(self.__word_occurences.keys())
+         for word in sorted_words: 
+            print("{word} :: {self.__word_frequencies[word]}")
+            
