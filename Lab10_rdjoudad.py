@@ -62,3 +62,5 @@ def main():
             analyzer.print_report()
         elif user_response !='5':
             print("That choice is not valid. Please select again.") 
+
+main()
