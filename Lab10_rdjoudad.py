@@ -50,5 +50,14 @@ def main():
     print("2. Princess Mars")
     print("3. Tarzan")
     print("4. Treasure Island")
-    while user_response != 'q':
-        user_response = input("")
+    print("5. Exit")
+
+    user_response = ""
+    while user_response != '5':
+        user_response = input("Enter your choice: ")
+        if user_response in files:
+            analyzer = WordAnalyzer(files[user_response])
+            analyzer.process_file()
+            analyzer.print_report()
+        elif user_response !='5':
+            print("That choice is not valid. Please select again.") 
