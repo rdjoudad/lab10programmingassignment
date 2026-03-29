@@ -18,29 +18,30 @@ class WordAnalyzer:
         try:
             if self.__filepath.exists():
                 with self.__filepath.open() as book:
-                     for line in book:
-                          ignored_characters = str.maketrans("", "", string.punctuation)
-                          words = line.lower().split()
-                          for word in words:
-                                if word in self.__word_occurences:
-                                    self.__word_occurences[word] += 1 
-                                else:
-                                    self.__word_occurences[word] = 1
+                    for line in book:
+                        ignored_characters = str.maketrans("", "", string.punctuation)
+                        words = line.lower().split()
+                        for word in words:
+                            if word in self.__word_occurences:
+                                self.__word_occurences[word] += 1 
+                            else:
+                                self.__word_occurences[word] = 1
                 return True
         except FileNotFoundError:
-                print("That file does not exist.")
-                return False
+            print("That file does not exist.")
+            return False
     
     def print_report(self):
          #triple docstring goes here
-         sorted_words = sorted(self.__word_occurences.keys())
-         for word in sorted_words: 
+        sorted_words = sorted(self.__word_occurences.keys())
+        for word in sorted_words: 
             print(f"{word} :: {self.__word_frequencies[word]}")
 
 def main():
-     files = {
-          "1" : pathlib.Path("monte_cristo.txt"),
-          "2" : pathlib.Path("princess_mars.txt"),
-          "3" : pathlib.Path("Tarzan.txt"),
-          "4" : pathlib.Path("monte_cristo.txt")
+    files = {
+        "1" : pathlib.Path("monte_cristo.txt"),
+        "2" : pathlib.Path("princess_mars.txt"),
+        "3" : pathlib.Path("Tarzan.txt"),
+        "4" : pathlib.Path("monte_cristo.txt")
     }
+     
