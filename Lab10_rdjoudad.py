@@ -9,9 +9,14 @@ Imported text files containing public domain stories
 import pathlib, string
 
 class WordAnalyzer:
-
+    """
+    WordAnalyzer Class
+    Ryma Djoudad
+    Class that processes the files, strips them of characters and prints their frequency
+    Imported pathlib and string modules
+    03/29/2026
+    """
     def __init__(self, filepath):
-        # triple docstring goes here
         self.__filepath = pathlib.Path(filepath)
         self.__word_mentions = {}
     def process_file(self):
@@ -34,12 +39,18 @@ class WordAnalyzer:
             return False
     
     def print_report(self):
-         #triple docstring goes here
         sorted_words = sorted(self.__word_mentions.keys())
         for word in sorted_words: 
             print(f"{word} :: {self.__word_mentions[word]}")
 
 def main():
+    """
+    Main function
+    Ryma Djoudad
+    Function acting as the user interface that is interactive with choices including exit
+    Using imported pathlib
+    03/29/2026
+    """
     files = {
         "1" : pathlib.Path("monte_cristo.txt"),
         "2" : pathlib.Path("princess_mars.txt"),
