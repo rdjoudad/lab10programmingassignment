@@ -36,3 +36,11 @@ class WordAnalyzer:
          sorted_words = sorted(self.__word_occurences.keys())
          for word in sorted_words: 
             print(f"{word} :: {self.__word_frequencies[word]}")
+
+def main():
+     files = {
+          "1" : pathlib.Path("monte_cristo.txt"),
+          "2" : pathlib.Path("princess_mars.txt"),
+          "3" : pathlib.Path("Tarzan.txt"),
+          "4" : pathlib.Path("monte_cristo.txt")
+    }
